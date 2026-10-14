@@ -1,0 +1,8 @@
+# robots.txt for softcoverbooks.co.za
+User-agent: *
+Allow: /
+Allow: /images/
+Allow: /css/
+Allow: /js/
+
+Sitemap: https://www.softcoverbooks.co.za/sitemap.xml
