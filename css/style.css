@@ -215,17 +215,18 @@ img {
   list-style: none;
   display: flex;
   flex-wrap: wrap;
-  gap: 4px;
-  padding: 6px 0;
+  align-items: center;
+  gap: 2px;
+  padding: 5px 0;
 }
 
 .nav-link {
   display: inline-flex;
   align-items: center;
-  padding: 8px 14px;
+  padding: 6px 8px;
   color: var(--ink-dark);
   font-family: var(--font-ui);
-  font-size: 0.95rem;
+  font-size: 0.89rem;
   font-weight: 600;
   border: 1.5px solid transparent;
   border-radius: var(--radius-sm);
@@ -239,6 +240,23 @@ img {
   box-shadow: var(--retro-shadow-sm);
   color: var(--pulp-red);
   text-decoration: none;
+}
+
+@media (min-width: 1400px) {
+  .nav-link {
+    padding: 6px 10px;
+    font-size: 0.91rem;
+  }
+  .nav-list {
+    gap: 3px;
+  }
+}
+
+@media (max-width: 1200px) {
+  .nav-link {
+    padding: 5px 6px;
+    font-size: 0.85rem;
+  }
 }
 
 /* Hero Pulp Banner */
