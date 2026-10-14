@@ -142,12 +142,14 @@ img {
   line-height: 1;
 }
 
-.brand-text h1 {
+.brand-text h1,
+.brand-text .brand-name {
   font-family: var(--font-display);
   font-size: 2.1rem;
   line-height: 1;
   letter-spacing: 1px;
   color: var(--ink-dark);
+  margin: 0;
 }
 
 .brand-text .sub-title {
@@ -1327,3 +1329,76 @@ img {
   margin-bottom: 12px;
   line-height: 1.1;
 }
+
+/* Archive Data Table Styling */
+.table-responsive-container {
+  overflow-x: auto;
+  background: var(--bg-card);
+  border: 2px solid var(--ink-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--retro-shadow);
+  margin: 24px 0 32px 0;
+}
+
+.archive-data-table {
+  width: 100%;
+  border-collapse: collapse;
+  font-family: var(--font-body);
+  font-size: 0.95rem;
+  margin: 0;
+}
+
+.archive-data-table th {
+  background: var(--ink-dark);
+  color: var(--pulp-paper);
+  font-family: var(--font-display);
+  font-size: 1.1rem;
+  letter-spacing: 0.5px;
+  text-align: left;
+  padding: 14px 16px;
+  border-bottom: 2px solid var(--pulp-red);
+}
+
+.archive-data-table td {
+  padding: 12px 16px;
+  border-bottom: 1px solid var(--border-vintage);
+  color: var(--ink-body);
+}
+
+.archive-data-table tr:nth-child(even) td {
+  background: rgba(0, 0, 0, 0.02);
+}
+
+.archive-data-table tr:hover td {
+  background: rgba(184, 51, 42, 0.05);
+}
+
+.badge-tag {
+  display: inline-block;
+  padding: 3px 8px;
+  border-radius: 4px;
+  font-family: var(--font-ui);
+  font-size: 0.75rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+}
+
+.badge-tag.tag-afr {
+  background: #E8F5E9;
+  color: #2E7D32;
+  border: 1px solid #A5D6A7;
+}
+
+.badge-tag.tag-eng {
+  background: #E3F2FD;
+  color: #1565C0;
+  border: 1px solid #90CAF9;
+}
+
+.badge-tag.tag-other {
+  background: #FFF3E0;
+  color: #E65100;
+  border: 1px solid #FFCC80;
+}
+
