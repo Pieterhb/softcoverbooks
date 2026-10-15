@@ -1458,7 +1458,6 @@ img {
   align-items: center;
   flex-wrap: wrap;
   gap: 2px;
-  flex: 1;
 }
 
 .sb-net-link {
@@ -1477,6 +1476,11 @@ img {
 .sb-net-link:hover {
   background: rgba(255,255,255,0.1);
   color: #fff;
+}
+
+.sb-net-link:visited,
+.sb-net-link.sb-net-featured:visited {
+  color: #fca5a5;
 }
 
 .sb-net-link.sb-net-featured {
