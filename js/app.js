@@ -7,7 +7,30 @@ document.addEventListener('DOMContentLoaded', () => {
   initMobileNav();
   initSearchAndFilter();
   initLightbox();
+  initAnchorNav();
 });
+
+// Anchor Nav — intercept section links to prevent browser focus outline flash
+function initAnchorNav() {
+  const STICKY_HEIGHT = 130; // px — height of sticky header + network bar
+  const anchorLinks = document.querySelectorAll('a[href^="#storieboeke"], a[href^="#fotoverhale"], a[href^="#uitgewers"], a[href^="#skrywers"]');
+
+  anchorLinks.forEach(link => {
+    link.addEventListener('click', function (e) {
+      const targetId = this.getAttribute('href').replace('#', '');
+      const targetEl = document.getElementById(targetId);
+      if (!targetEl) return;
+
+      e.preventDefault(); // stop browser from focusing the element
+
+      const top = targetEl.getBoundingClientRect().top + window.scrollY - STICKY_HEIGHT;
+      window.scrollTo({ top, behavior: 'instant' });
+
+      // Update URL hash silently without triggering focus
+      history.pushState(null, '', '#' + targetId);
+    });
+  });
+}
 
 // Mobile Navigation Toggle
 function initMobileNav() {
