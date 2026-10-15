@@ -43,7 +43,8 @@
 
 html {
   font-size: 16px;
-  scroll-behavior: smooth;
+  scroll-behavior: auto;
+  scroll-padding-top: 130px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -1638,4 +1639,15 @@ img {
   .sb-portale-grid {
     grid-template-columns: 1fr;
   }
+}
+
+/* ============================================================
+   ANCHOR SCROLL OFFSET — accounts for sticky header height
+   Ensures nav anchor links land with section heading visible
+   ============================================================ */
+#storieboeke,
+#fotoverhale,
+#uitgewers,
+#skrywers {
+  scroll-margin-top: 130px;
 }
