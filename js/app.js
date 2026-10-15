@@ -12,8 +12,18 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Anchor Nav — intercept section links to prevent browser focus outline flash
 function initAnchorNav() {
-  const STICKY_HEIGHT = 130; // px — height of sticky header + network bar
+  const BREATHING_SPACE = 45; // px — comfortable gap below sticky navbar so section title is clearly visible
   const anchorLinks = document.querySelectorAll('a[href^="#storieboeke"], a[href^="#fotoverhale"], a[href^="#uitgewers"], a[href^="#skrywers"]');
+
+  function scrollToSection(targetId) {
+    const targetEl = document.getElementById(targetId);
+    if (!targetEl) return;
+    const header = document.querySelector('.site-header');
+    const headerHeight = header ? header.getBoundingClientRect().height : 130;
+    const totalOffset = Math.round(headerHeight + BREATHING_SPACE);
+    const top = targetEl.getBoundingClientRect().top + window.scrollY - totalOffset;
+    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  }
 
   anchorLinks.forEach(link => {
     link.addEventListener('click', function (e) {
@@ -22,14 +32,22 @@ function initAnchorNav() {
       if (!targetEl) return;
 
       e.preventDefault(); // stop browser from focusing the element
-
-      const top = targetEl.getBoundingClientRect().top + window.scrollY - STICKY_HEIGHT;
-      window.scrollTo({ top, behavior: 'instant' });
+      scrollToSection(targetId);
 
       // Update URL hash silently without triggering focus
       history.pushState(null, '', '#' + targetId);
     });
   });
+
+  // Also handle direct hash navigation on initial load (e.g. index.html#storieboeke)
+  if (window.location.hash) {
+    const initialTargetId = window.location.hash.substring(1);
+    if (['storieboeke', 'fotoverhale', 'uitgewers', 'skrywers'].includes(initialTargetId)) {
+      setTimeout(() => {
+        scrollToSection(initialTargetId);
+      }, 50);
+    }
+  }
 }
 
 // Mobile Navigation Toggle

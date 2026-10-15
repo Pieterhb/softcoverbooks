@@ -44,7 +44,7 @@
 html {
   font-size: 16px;
   scroll-behavior: auto;
-  scroll-padding-top: 130px;
+  scroll-padding-top: 175px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -1649,7 +1649,7 @@ img {
 #fotoverhale,
 #uitgewers,
 #skrywers {
-  scroll-margin-top: 130px;
+  scroll-margin-top: 175px;
 }
 
 /* Remove browser focus outline flash when anchor-jumping to sections */
