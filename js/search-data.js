@@ -2478,23 +2478,8 @@
   "sirkel publikasies boeke.html": [
     "sirkel publikasies",
     "sirkel publikasies boeke",
-    "die glasparadys",
-    "naomi beukes",
-    "die suid-oostewind waai",
-    "marlene du toit",
-    "skande van gister",
-    "vreemde erfenis",
-    "die liefde sal seëvier",
-    "anneline de klerk",
-    "dwaalweg van my hart",
-    "&amp;#x27;n ridder gemasker",
-    "swaard en minuet",
-    "wille martin",
     "liefde vir nina",
-    "gys van graan",
-    "&#x27;n bruid vir dr. jaco",
-    "louis barnard",
-    "wanneer &#x27;n ster verskiet"
+    "gys van graan"
   ],
   "tafelberg boeke.html": [
     "tafelberg",
