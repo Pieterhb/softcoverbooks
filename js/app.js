@@ -10,7 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
   initAnchorNav();
 });
 
-// Anchor Nav — intercept section links to prevent browser focus outline flash
+// Anchor Nav – intercept section links to prevent browser focus outline flash
 function initAnchorNav() {
   const GAP_ABOVE_HEADER = 16; // px between sticky navbar and the section header text
   const anchorLinks = document.querySelectorAll('a[href^="#storieboeke"], a[href^="#fotoverhale"], a[href^="#uitgewers"], a[href^="#skrywers"]');

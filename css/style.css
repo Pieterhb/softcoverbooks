@@ -1505,7 +1505,7 @@ img {
   font-family: var(--font-display, Georgia, serif);
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--ink-muted, #64748b);
+  color: var(--ink-muted, #465161);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 12px;
@@ -1642,7 +1642,7 @@ img {
 }
 
 /* ============================================================
-   ANCHOR SCROLL OFFSET — accounts for sticky header height
+   ANCHOR SCROLL OFFSET – accounts for sticky header height
    Ensures nav anchor links land with section heading visible
    ============================================================ */
 #storieboeke,
