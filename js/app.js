@@ -12,16 +12,17 @@ document.addEventListener('DOMContentLoaded', () => {
 
 // Anchor Nav — intercept section links to prevent browser focus outline flash
 function initAnchorNav() {
-  const BREATHING_SPACE = 45; // px — comfortable gap below sticky navbar so section title is clearly visible
+  const GAP_ABOVE_HEADER = 16; // px between sticky navbar and the section header text
   const anchorLinks = document.querySelectorAll('a[href^="#storieboeke"], a[href^="#fotoverhale"], a[href^="#uitgewers"], a[href^="#skrywers"]');
 
   function scrollToSection(targetId) {
     const targetEl = document.getElementById(targetId);
     if (!targetEl) return;
     const header = document.querySelector('.site-header');
-    const headerHeight = header ? header.getBoundingClientRect().height : 130;
-    const totalOffset = Math.round(headerHeight + BREATHING_SPACE);
-    const top = targetEl.getBoundingClientRect().top + window.scrollY - totalOffset;
+    const headerHeight = header ? header.getBoundingClientRect().height : 128;
+    // Find section-header child inside targetEl for precise positioning below sticky navbar
+    const sectionHeader = targetEl.querySelector('.section-header') || targetEl;
+    const top = sectionHeader.getBoundingClientRect().top + window.scrollY - Math.round(headerHeight + GAP_ABOVE_HEADER);
     window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
   }
 

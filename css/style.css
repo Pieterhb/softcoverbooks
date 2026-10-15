@@ -44,7 +44,7 @@
 html {
   font-size: 16px;
   scroll-behavior: auto;
-  scroll-padding-top: 175px;
+  scroll-padding-top: 110px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -1649,7 +1649,7 @@ img {
 #fotoverhale,
 #uitgewers,
 #skrywers {
-  scroll-margin-top: 175px;
+  scroll-margin-top: 110px;
 }
 
 /* Remove browser focus outline flash when anchor-jumping to sections */
@@ -1698,39 +1698,84 @@ img {
 }
 
 /* ============================================================
-   SB ABOUT / OOR ONS HEADER BUTTON
+   CENTERED FOOTER BRAND & SIDE-BY-SIDE NAVIGATION
+   Used on Oor Ons & Standalone Archive Pages
    ============================================================ */
-.sb-about-btn {
+.footer-brand-center {
+  text-align: center;
+  margin-bottom: 28px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.footer-brand-title {
   display: inline-flex;
   align-items: center;
-  gap: 6px;
-  font-family: var(--font-ui, Arial, sans-serif);
-  font-size: 0.8rem;
+  justify-content: center;
+  gap: 10px;
+  margin-bottom: 6px;
+}
+
+.footer-brand-title .footer-logo-text {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
   font-weight: 700;
-  text-transform: uppercase;
+  color: #FFFFFF;
+  letter-spacing: 1px;
+  line-height: 1;
+}
+
+.footer-brand-title .footer-brand-name {
+  font-family: var(--font-display);
+  font-size: 2.2rem;
+  font-weight: 700;
+  color: #FFFFFF;
+  letter-spacing: 1.5px;
+  line-height: 1;
+}
+
+.footer-tagline {
+  color: #DFD5BE;
+  font-size: 1rem;
+  font-style: italic;
+  margin: 0;
+  text-align: center;
+}
+
+.footer-nav-row {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-start;
+  max-width: 900px;
+  margin: 0 auto 28px;
+  padding: 0 16px;
+  gap: 32px;
+  width: 100%;
+  box-sizing: border-box;
+}
+
+.footer-nav-col {
+  flex: 0 1 auto;
+}
+
+.footer-nav-col .footer-col-title {
+  font-family: var(--font-display);
+  font-size: 1.45rem;
+  color: var(--pulp-gold);
   letter-spacing: 0.5px;
-  color: #1e293b;
-  background: #fefce8;
-  border: 2px solid #1e293b;
-  border-radius: 4px;
-  padding: 6px 14px;
-  text-decoration: none;
-  box-shadow: 2px 2px 0px #1e293b;
-  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
-  white-space: nowrap;
+  margin-bottom: 12px;
+  text-transform: uppercase;
 }
-.sb-about-btn:hover {
-  background: #fef3c7;
-  transform: translate(-1px, -1px);
-  box-shadow: 3px 3px 0px #1e293b;
-  color: #1e293b;
+
+.footer-nav-col-right {
+  text-align: left;
 }
-.sb-about-btn:visited {
-  color: #1e293b;
-}
-@media (max-width: 640px) {
-  .sb-about-btn {
-    font-size: 0.72rem;
-    padding: 5px 10px;
+
+@media (max-width: 600px) {
+  .footer-nav-row {
+    flex-direction: column;
+    gap: 24px;
   }
 }
