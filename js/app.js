@@ -71,10 +71,12 @@ function initMobileNav() {
 
 // Instant Search & Category Filter
 function initSearchAndFilter() {
-  const searchInput = document.querySelector('.search-input');
-  const filterChips = document.querySelectorAll('.filter-chip');
   const bookCards = document.querySelectorAll('.book-card');
   const seriesCards = document.querySelectorAll('.series-card');
+  if (bookCards.length === 0 && seriesCards.length === 0) return;
+
+  const searchInput = document.querySelector('.search-input');
+  const filterChips = document.querySelectorAll('.filter-chip');
   const resultCount = document.querySelector('.section-count');
 
   let activeCategory = 'all';
