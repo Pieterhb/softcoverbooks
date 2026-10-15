@@ -11,8 +11,8 @@
   --bg-card: #FFFDF9;
   --bg-card-hover: #FFF9EE;
   --ink-dark: #141C2B;
-  --ink-body: #2A3342;
-  --ink-muted: #556275;
+  --ink-body: #1D242E;
+  --ink-muted: #3C4552;
   --pulp-red: #C1292E;
   --pulp-red-dark: #991B1F;
   --pulp-red-light: #FBEAEA;
@@ -1505,7 +1505,7 @@ img {
   font-family: var(--font-display, Georgia, serif);
   font-size: 0.72rem;
   font-weight: 800;
-  color: var(--ink-muted, #465161);
+  color: var(--ink-muted, #3C4552);
   text-transform: uppercase;
   letter-spacing: 2px;
   margin-bottom: 12px;
@@ -1593,7 +1593,7 @@ img {
 .sb-card-desc {
   font-family: var(--font-ui, Arial, sans-serif);
   font-size: 0.8rem;
-  color: #475569;
+  color: var(--ink-muted);
   line-height: 1.55;
   flex: 1;
   margin: 0;
