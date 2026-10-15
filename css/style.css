@@ -1659,3 +1659,78 @@ img {
 #skrywers:target {
   outline: none;
 }
+
+/* ============================================================
+   SB ABOUT / OOR ONS HEADER BUTTON
+   ============================================================ */
+.sb-about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui, Arial, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1e293b;
+  background: #fefce8;
+  border: 2px solid #1e293b;
+  border-radius: 4px;
+  padding: 6px 14px;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #1e293b;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.sb-about-btn:hover {
+  background: #fef3c7;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #1e293b;
+}
+.sb-about-btn:visited {
+  color: #1e293b;
+}
+@media (max-width: 640px) {
+  .sb-about-btn {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+}
+
+/* ============================================================
+   SB ABOUT / OOR ONS HEADER BUTTON
+   ============================================================ */
+.sb-about-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  font-family: var(--font-ui, Arial, sans-serif);
+  font-size: 0.8rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  color: #1e293b;
+  background: #fefce8;
+  border: 2px solid #1e293b;
+  border-radius: 4px;
+  padding: 6px 14px;
+  text-decoration: none;
+  box-shadow: 2px 2px 0px #1e293b;
+  transition: transform 0.15s ease, box-shadow 0.15s ease, background 0.15s ease;
+  white-space: nowrap;
+}
+.sb-about-btn:hover {
+  background: #fef3c7;
+  transform: translate(-1px, -1px);
+  box-shadow: 3px 3px 0px #1e293b;
+  color: #1e293b;
+}
+.sb-about-btn:visited {
+  color: #1e293b;
+}
+@media (max-width: 640px) {
+  .sb-about-btn {
+    font-size: 0.72rem;
+    padding: 5px 10px;
+  }
+}
