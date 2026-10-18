@@ -44,7 +44,6 @@
 html {
   font-size: 16px;
   scroll-behavior: auto;
-  scroll-padding-top: 110px;
   -webkit-text-size-adjust: 100%;
 }
 
@@ -271,6 +270,125 @@ img {
   .nav-link {
     padding: 4px 4px;
     font-size: 0.78rem;
+  }
+}
+
+/* ==========================================================================
+   Cellphone Mode (9:16 portrait, <= 640px) Layout Optimizations
+   Ensures Row 1 (Header/Logo/Oor Ons) and Row 2 (Navigation) fit perfectly
+   without horizontal overflow or cut-off content.
+   ========================================================================== */
+@media (max-width: 640px) {
+  html, body {
+    overflow-x: hidden;
+    max-width: 100vw;
+  }
+
+  .site-wrapper {
+    padding: 0 10px;
+  }
+
+  /* ROW 1: Header Brand & Actions */
+  .header-inner {
+    padding: 8px 0;
+    gap: 8px;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .logo-group {
+    gap: 8px;
+    min-width: 0;
+    flex: 1 1 auto;
+  }
+
+  .logo-badge {
+    width: 42px;
+    height: 42px;
+    font-size: 1.55rem;
+    flex-shrink: 0;
+  }
+
+  .brand-text {
+    min-width: 0;
+  }
+
+  .brand-text h1,
+  .brand-text .brand-name {
+    font-size: clamp(1.35rem, 5.2vw, 1.85rem);
+    line-height: 1.0;
+    letter-spacing: 0.5px;
+    white-space: nowrap;
+    margin: 0;
+  }
+
+  .brand-text .sub-title {
+    font-size: 0.62rem;
+    letter-spacing: 0.4px;
+    line-height: 1.15;
+    white-space: nowrap;
+  }
+
+  .header-actions {
+    flex-shrink: 0;
+    gap: 6px;
+    display: flex;
+    align-items: center;
+  }
+
+  .sb-about-btn {
+    font-size: 0.75rem;
+    padding: 5px 10px;
+    white-space: nowrap;
+    flex-shrink: 0;
+  }
+
+  /* Hide long email pill in header on mobile so Row 1 fits cleanly without running off */
+  .contact-pill {
+    display: none !important;
+  }
+
+  /* ROW 2: Main Navigation Bar */
+  .main-nav {
+    padding: 6px 0;
+    background: var(--bg-parchment-deep);
+  }
+
+  .nav-list {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    align-items: center;
+    gap: 5px 6px;
+    padding: 2px 0;
+    width: 100%;
+  }
+
+  .nav-list li {
+    display: inline-flex;
+    margin: 0;
+    padding: 0;
+  }
+
+  .nav-link {
+    font-size: 0.76rem;
+    padding: 5px 8px;
+    border: 1.5px solid var(--border-vintage-dark);
+    background: var(--bg-card);
+    border-radius: var(--radius-sm);
+    box-shadow: 1px 1px 0px var(--ink-dark);
+    white-space: nowrap;
+    line-height: 1.2;
+    transition: all 0.12s ease;
+  }
+
+  .nav-link:hover,
+  .nav-link.active {
+    background: #FFF;
+    border-color: var(--ink-dark);
+    color: var(--pulp-red);
+    box-shadow: var(--retro-shadow-sm);
+    font-weight: 700;
   }
 }
 
@@ -609,7 +727,13 @@ img {
   display: flex;
   flex-direction: column;
   gap: 2px;
-  margin-top: auto;
+  margin-top: 2px !important;
+}
+
+/* Card subtitle and author alignment - move info directly below title without blank rows */
+body.fotoverhale-page .book-meta,
+.fotoverhale-page .book-meta {
+  margin-top: 2px !important;
 }
 
 .book-author {
@@ -1145,6 +1269,34 @@ img {
   }
 }
 
+/* Specific 5-column layout for Uitgewers on desktop so all 5 cards fit evenly with equal spacing */
+#publishersGrid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 18px;
+}
+
+@media (min-width: 1080px) {
+  #publishersGrid {
+    grid-template-columns: repeat(5, 1fr);
+    gap: 18px;
+  }
+}
+
+@media (max-width: 1079px) and (min-width: 680px) {
+  #publishersGrid {
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+  }
+}
+
+@media (max-width: 679px) {
+  #publishersGrid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+  }
+}
+
 .archive-card {
   background: var(--bg-card);
   border: 2px solid var(--ink-dark);
@@ -1180,6 +1332,37 @@ img {
 }
 
 .archive-card:hover .archive-card-cover-wrap img {
+  transform: scale(1.03);
+}
+
+.quad-cover-wrap {
+  position: relative;
+  aspect-ratio: 1 / 1.45;
+  background: var(--bg-parchment-deep);
+  overflow: hidden;
+  padding: 4px;
+  display: block;
+}
+
+.quad-cover-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  grid-template-rows: 1fr 1fr;
+  gap: 3px;
+  width: 100%;
+  height: 100%;
+}
+
+.quad-cover-grid img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 2px;
+  border: 1px solid rgba(0, 0, 0, 0.18);
+  transition: transform 0.2s ease;
+}
+
+.archive-card:hover .quad-cover-grid img {
   transform: scale(1.03);
 }
 
@@ -1351,7 +1534,7 @@ img {
 
 .archive-data-table th {
   background: var(--ink-dark);
-  color: var(--pulp-paper);
+  color: var(--bg-parchment);
   font-family: var(--font-display);
   font-size: 1.1rem;
   letter-spacing: 0.5px;
@@ -1641,16 +1824,6 @@ img {
   }
 }
 
-/* ============================================================
-   ANCHOR SCROLL OFFSET – accounts for sticky header height
-   Ensures nav anchor links land with section heading visible
-   ============================================================ */
-#storieboeke,
-#fotoverhale,
-#uitgewers,
-#skrywers {
-  scroll-margin-top: 110px;
-}
 
 /* Remove browser focus outline flash when anchor-jumping to sections */
 #storieboeke:target,
@@ -1778,4 +1951,60 @@ img {
     flex-direction: column;
     gap: 24px;
   }
+}
+
+
+/* Instant Anchor Navigation and Offset for Sticky Header */
+html {
+  scroll-behavior: auto !important;
+  scroll-padding-top: 130px;
+}
+
+#storieboeke,
+#fotoverhale,
+#uitgewers,
+#enkelboeke,
+#skrywers,
+.archive-section {
+  scroll-margin-top: 130px;
+  outline: none !important;
+  caret-color: transparent !important;
+}
+
+/* Eliminate flashing vertical cursor / focus outline on headers and icons */
+.section-header,
+.section-header h3,
+.section-header *,
+.archive-section,
+.archive-section *,
+.sb-portale-section,
+.sb-portale-section *,
+.welcome-banner,
+.welcome-banner *,
+:target,
+:focus {
+  outline: none !important;
+  box-shadow: none !important;
+  caret-color: transparent !important;
+  user-select: none;
+  -webkit-user-select: none;
+}
+
+/* Preserve text selection for paragraphs and content while keeping caret hidden */
+p, span, td, th {
+  user-select: text;
+  -webkit-user-select: text;
+}
+
+/* Allow text inputs and search to retain caret and visible focus */
+input, textarea {
+  caret-color: auto !important;
+  user-select: text !important;
+  -webkit-user-select: text !important;
+}
+
+input:focus, textarea:focus, .search-input:focus {
+  outline: none !important;
+  border-color: var(--pulp-red) !important;
+  box-shadow: 0 0 0 3px var(--pulp-red-light) !important;
 }

@@ -4,51 +4,105 @@
  */
 
 document.addEventListener('DOMContentLoaded', () => {
+  if (window.location.pathname.toLowerCase().includes('fotoverhaal') || document.title.toLowerCase().includes('fotoverhaal')) {
+    document.body.classList.add('fotoverhale-page');
+  }
   initMobileNav();
   initSearchAndFilter();
   initLightbox();
   initAnchorNav();
 });
 
-// Anchor Nav – intercept section links to prevent browser focus outline flash
+// Anchor Nav & Instant Section Positioning
 function initAnchorNav() {
-  const GAP_ABOVE_HEADER = 16; // px between sticky navbar and the section header text
-  const anchorLinks = document.querySelectorAll('a[href^="#storieboeke"], a[href^="#fotoverhale"], a[href^="#uitgewers"], a[href^="#skrywers"]');
+  const SECTION_MAP = {
+    'storieboeke': 'storieboeke',
+    'fotoverhale': 'fotoverhale',
+    'uitgewers': 'uitgewers',
+    'enkelboeke': 'uitgewers',
+    'skrywers': 'skrywers'
+  };
 
-  function scrollToSection(targetId) {
-    const targetEl = document.getElementById(targetId);
-    if (!targetEl) return;
-    const header = document.querySelector('.site-header');
-    const headerHeight = header ? header.getBoundingClientRect().height : 128;
-    // Find section-header child inside targetEl for precise positioning below sticky navbar
-    const sectionHeader = targetEl.querySelector('.section-header') || targetEl;
-    const top = sectionHeader.getBoundingClientRect().top + window.scrollY - Math.round(headerHeight + GAP_ABOVE_HEADER);
-    window.scrollTo({ top: Math.max(0, top), behavior: 'instant' });
+  function getTarget(hash) {
+    if (!hash) return null;
+    const clean = hash.replace(/^#/, '').toLowerCase();
+    const id = SECTION_MAP[clean] || clean;
+    return document.getElementById(id) || document.getElementById(clean);
   }
 
-  anchorLinks.forEach(link => {
-    link.addEventListener('click', function (e) {
-      const targetId = this.getAttribute('href').replace('#', '');
-      const targetEl = document.getElementById(targetId);
-      if (!targetEl) return;
+  function clearCaretAndFocus() {
+    if (document.activeElement && document.activeElement !== document.body) {
+      document.activeElement.blur();
+    }
+    if (window.getSelection) {
+      window.getSelection().removeAllRanges();
+    }
+  }
 
-      e.preventDefault(); // stop browser from focusing the element
-      scrollToSection(targetId);
+  function scrollToHash() {
+    if (!window.location.hash) return;
+    const target = getTarget(window.location.hash);
+    if (target) {
+      target.scrollIntoView({ behavior: 'instant', block: 'start' });
+      updateActiveNav(window.location.hash);
+      clearCaretAndFocus();
+    }
+  }
 
-      // Update URL hash silently without triggering focus
-      history.pushState(null, '', '#' + targetId);
+  function updateActiveNav(hash) {
+    if (!hash) return;
+    const clean = hash.replace(/^#/, '').toLowerCase();
+    const mapped = SECTION_MAP[clean] || clean;
+    document.querySelectorAll('.main-nav .nav-link').forEach(link => {
+      const href = (link.getAttribute('href') || '').toLowerCase();
+      const match = href.includes('#' + mapped) || href.includes('#' + clean);
+      if (match) {
+        link.classList.add('active');
+      } else if (href.includes('#') || href.endsWith('index.html')) {
+        link.classList.remove('active');
+      }
+    });
+  }
+
+  // Handle Home link when already on index page
+  const homeLinks = document.querySelectorAll('.main-nav a[href="index.html"], .logo-group');
+  homeLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+      const isHome = document.getElementById('storieboeke');
+      if (isHome && (window.location.hash || window.scrollY > 50)) {
+        e.preventDefault();
+        window.scrollTo({ top: 0, behavior: 'instant' });
+        history.pushState(null, '', window.location.pathname);
+        document.querySelectorAll('.main-nav .nav-link').forEach(l => l.classList.remove('active'));
+        const firstLink = document.querySelector('.main-nav .nav-link');
+        if (firstLink) firstLink.classList.add('active');
+        clearCaretAndFocus();
+      }
     });
   });
 
-  // Also handle direct hash navigation on initial load (e.g. index.html#storieboeke)
+  // Also remove focus on any anchor link click in the nav
+  document.querySelectorAll('.main-nav a').forEach(link => {
+    link.addEventListener('click', () => {
+      setTimeout(clearCaretAndFocus, 10);
+      setTimeout(clearCaretAndFocus, 50);
+    });
+  });
+
+  // If page loaded with hash, scroll instantly to target section (and retry as images finish loading)
   if (window.location.hash) {
-    const initialTargetId = window.location.hash.substring(1);
-    if (['storieboeke', 'fotoverhale', 'uitgewers', 'skrywers'].includes(initialTargetId)) {
-      setTimeout(() => {
-        scrollToSection(initialTargetId);
-      }, 50);
-    }
+    scrollToHash();
+    setTimeout(scrollToHash, 50);
+    setTimeout(scrollToHash, 150);
+    setTimeout(scrollToHash, 350);
+    setTimeout(scrollToHash, 600);
+    window.addEventListener('load', scrollToHash);
   }
+
+  // Handle in-page hash changes (clicks or back/forward)
+  window.addEventListener('hashchange', () => {
+    scrollToHash();
+  });
 }
 
 // Mobile Navigation Toggle
@@ -174,6 +228,15 @@ function initLightbox() {
     yearEl.textContent = item.year || 'c. 1950 - 1980';
     publisherEl.textContent = item.publisher || 'Pronk / Sirkel / APB';
     numberEl.textContent = item.number ? `#${item.number}` : '-';
+
+    const authorLabelCell = authorEl ? authorEl.closest('tr')?.querySelector('td:first-child') : null;
+    const isFotoverhaal = document.body.classList.contains('fotoverhale-page') ||
+                          (item.src && item.src.toLowerCase().includes('fotoverhale')) ||
+                          (item.series && item.series.toLowerCase().includes('fotoverhaal')) ||
+                          window.location.pathname.toLowerCase().includes('fotoverhaal');
+    if (authorLabelCell) {
+      authorLabelCell.textContent = isFotoverhaal ? 'Titel:' : 'Skrywer / Outeur:';
+    }
     
     if (item.notes) {
       notesEl.parentElement.style.display = 'block';
