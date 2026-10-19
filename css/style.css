@@ -216,10 +216,12 @@ img {
 .nav-list {
   list-style: none;
   margin: 0;
-  padding: 6px 0;
+  padding: 8px 0;
   display: flex;
-  justify-content: space-between;
+  justify-content: center;
   align-items: center;
+  flex-wrap: wrap;
+  gap: 8px 12px;
   width: 100%;
 }
 
@@ -233,11 +235,11 @@ img {
 .nav-link {
   display: inline-flex;
   align-items: center;
-  padding: 7px 11px;
+  padding: 8px 16px;
   color: var(--ink-dark);
   font-family: var(--font-ui);
-  font-size: 0.94rem;
-  font-weight: 600;
+  font-size: 1.22rem;
+  font-weight: 700;
   border: 1.5px solid transparent;
   border-radius: var(--radius-sm);
   transition: all 0.15s ease;
@@ -2649,4 +2651,105 @@ input:focus, textarea:focus, .search-input:focus {
     width: 100%;
     justify-content: center;
   }
+}
+
+
+/* Center Homepage Hero Banner */
+.hero-pulp-banner {
+  background: var(--bg-card);
+  border: 3px solid var(--ink-dark);
+  border-radius: var(--radius-md);
+  box-shadow: var(--retro-shadow);
+  padding: 36px 32px;
+  margin-bottom: 32px;
+  position: relative;
+  text-align: center;
+}
+
+.hero-pulp-banner .hero-badge-wrap {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 16px;
+}
+
+.hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2.4rem, 5.5vw, 4.2rem);
+  color: var(--ink-dark);
+  line-height: 1.02;
+  margin-bottom: 18px;
+  letter-spacing: 0.5px;
+  text-align: center;
+}
+
+.hero-lead {
+  font-size: 1.18rem;
+  line-height: 1.7;
+  color: var(--ink-dark);
+  margin-bottom: 16px;
+  text-align: center;
+  max-width: 1050px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.hero-subtext {
+  font-size: 0.96rem;
+  line-height: 1.6;
+  color: var(--ink-muted);
+  margin-bottom: 24px;
+  border-left: none;
+  border-top: 2px solid var(--pulp-gold-dark);
+  border-bottom: 2px solid var(--pulp-gold-dark);
+  padding: 12px 20px;
+  background: var(--bg-parchment-deep);
+  border-radius: var(--radius-sm);
+  text-align: center;
+  max-width: 950px;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+/* Center Hub Hero Banner */
+.hub-hero-banner {
+  background: linear-gradient(135deg, #1C2738 0%, #101724 100%);
+  color: #FAF6EE;
+  border: 3px solid var(--ink-dark);
+  box-shadow: var(--retro-shadow);
+  border-radius: var(--radius-md);
+  margin: 20px 0 28px;
+  padding: 32px 28px;
+  position: relative;
+  overflow: hidden;
+  text-align: center;
+}
+
+.hub-hero-banner .hero-badge-wrap {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-bottom: 14px;
+}
+
+.hub-hero-title {
+  font-family: var(--font-display);
+  font-size: clamp(2rem, 5vw, 3.2rem);
+  letter-spacing: 1px;
+  color: #FFF;
+  line-height: 1.05;
+  margin: 10px auto 14px;
+  text-align: center;
+}
+
+.hub-hero-subhead {
+  font-family: var(--font-body);
+  font-size: 1.15rem;
+  line-height: 1.6;
+  color: #E2D9C5;
+  max-width: 860px;
+  margin: 0 auto;
+  text-align: center;
 }
