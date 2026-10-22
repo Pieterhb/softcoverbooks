@@ -226,7 +226,7 @@ function initLightbox() {
     seriesEl.textContent = item.series || '';
     authorEl.textContent = item.author || 'Onbekend / Africana Argief';
     yearEl.textContent = item.year || 'c. 1950 - 1980';
-    publisherEl.textContent = item.publisher || 'Pronk / Sirkel / APB';
+    publisherEl.textContent = item.publisher || '-';
     numberEl.textContent = item.number ? `#${item.number}` : '-';
 
     const authorLabelCell = authorEl ? authorEl.closest('tr')?.querySelector('td:first-child') : null;

@@ -2672,9 +2672,7 @@
   ],
   "sandbergh beyers boeke.html": [
     "sandbergh beyers",
-    "sandberg beyers",
-    "sandberg beyers reeks",
-    "sandbergh beyers reeks",
+            "sandbergh beyers reeks",
     "sandbergh beyers boeke",
     "bloedspore in die sahara",
     "bloedhond in die sahara",
