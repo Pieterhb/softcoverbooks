@@ -1,0 +1,43 @@
+# Cloudflare Pages Redirects
+# Syntax: <source> <destination> [status]
+# Note: Sources and destinations with spaces MUST use %20 encoding
+
+# 1. Broken / dead URL flagged in Google Search Console
+/www.softcoverbooks.co.za / 301
+/www.softcoverbooks.co.za/* / 301
+
+# 2. Homepage canonicalization
+/index.html / 301
+/index / 301
+
+# 3. Old removed pages from prior site version (301 to relevant live pages or homepage)
+/affiliate%20marketing.html / 301
+/affiliate%20marketing / 301
+/cd%20voorblaaie.html / 301
+/cd%20voorblaaie / 301
+/foute%20op%20webwerf.html / 301
+/foute%20op%20webwerf / 301
+/hoofstuk1.html / 301
+/hoofstuk1 / 301
+/test.html / 301
+/test / 301
+/uitruil%20boeke.html / 301
+/uitruil%20boeke / 301
+/verkoop%20boeke.html / 301
+/verkoop%20boeke / 301
+/versamelaars.html / 301
+/versamelaars / 301
+/waar%20pas%20die%20boek%20in.html / 301
+/waar%20pas%20die%20boek%20in / 301
+/wat%20is%20nuut.html / 301
+/wat%20is%20nuut / 301
+
+# 4. Consolidated series redirects (replacing client-side meta-refresh redirects with permanent 301s)
+/grensvegter%20rocco%20de%20wet%20reeks%20fotoverhaal.html /grensvegter%20reeks%20fotoverhaal 301
+/grensvegter%20rocco%20de%20wet%20reeks%20fotoverhaal /grensvegter%20reeks%20fotoverhaal 301
+/ruimtedriemanskap%20reeks.html /ruimte%20reeks 301
+/ruimtedriemanskap%20reeks /ruimte%20reeks 301
+/tessa%20en%20kid%20colt%20reeks%20fotoverhaal.html /tessa%20and%20kid%20colt%20reeks%20fotoverhaal 301
+/tessa%20en%20kid%20colt%20reeks%20fotoverhaal /tessa%20and%20kid%20colt%20reeks%20fotoverhaal 301
+/love%20affair%20reeks%20fotoverhaal.html /index.html#fotoverhale 301
+/love%20affair%20reeks%20fotoverhaal /index.html#fotoverhale 301

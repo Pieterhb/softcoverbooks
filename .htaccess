@@ -1,0 +1,31 @@
+# Apache URL Normalization & Redirect Configuration
+# Skatkisboeke Africana (softcoverbooks.co.za)
+
+<IfModule mod_rewrite.c>
+RewriteEngine On
+RewriteBase /
+
+# 1. 301 Redirect dead relative link /www.softcoverbooks.co.za to homepage
+RewriteRule ^www\.softcoverbooks\.co\.za(/.*)?$ https://www.softcoverbooks.co.za/ [R=301,L]
+
+# 2. Redirect all apex (non-www) requests to canonical www domain with HTTPS
+RewriteCond %{HTTP_HOST} ^softcoverbooks\.co\.za$ [NC]
+RewriteRule ^(.*)$ https://www.softcoverbooks.co.za/$1 [R=301,L]
+
+# 3. Redirect plain HTTP requests to canonical HTTPS
+RewriteCond %{HTTPS} off
+RewriteRule ^(.*)$ https://www.softcoverbooks.co.za/$1 [R=301,L]
+
+# 4. Redirect /index.html and /index to root
+RewriteCond %{THE_REQUEST} ^[A-Z]{3,9}\ /(index|index\.html)\ HTTP/ [NC]
+RewriteRule ^(index|index\.html)$ https://www.softcoverbooks.co.za/ [R=301,L]
+
+# 5. Redirect old removed pages from prior site version
+RewriteRule ^(affiliate\ marketing|cd\ voorblaaie|foute\ op\ webwerf|hoofstuk1|test|uitruil\ boeke|verkoop\ boeke|versamelaars|waar\ pas\ die\ boek\ in|wat\ is\ nuut)(\.html)?$ https://www.softcoverbooks.co.za/ [R=301,L,NC]
+
+# 6. Consolidated series 301 redirects
+RewriteRule ^grensvegter\ rocco\ de\ wet\ reeks\ fotoverhaal(\.html)?$ https://www.softcoverbooks.co.za/grensvegter%20reeks%20fotoverhaal [R=301,L,NC]
+RewriteRule ^ruimtedriemanskap\ reeks(\.html)?$ https://www.softcoverbooks.co.za/ruimte%20reeks [R=301,L,NC]
+RewriteRule ^tessa\ en\ kid\ colt\ reeks\ fotoverhaal(\.html)?$ https://www.softcoverbooks.co.za/tessa%20and%20kid%20colt%20reeks%20fotoverhaal [R=301,L,NC]
+RewriteRule ^love\ affair\ reeks\ fotoverhaal(\.html)?$ https://www.softcoverbooks.co.za/index.html#fotoverhale [R=301,L,NC]
+</IfModule>
