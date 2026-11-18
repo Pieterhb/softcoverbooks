@@ -58,14 +58,14 @@ function initAnchorNav() {
       const match = href.includes('#' + mapped) || href.includes('#' + clean);
       if (match) {
         link.classList.add('active');
-      } else if (href.includes('#') || href.endsWith('index.html')) {
+      } else if (href.includes('#') || href === '/' || href.endsWith('index.html')) {
         link.classList.remove('active');
       }
     });
   }
 
   // Handle Home link when already on index page
-  const homeLinks = document.querySelectorAll('.main-nav a[href="index.html"], .logo-group');
+  const homeLinks = document.querySelectorAll('.main-nav a[href="/"], .main-nav a[href="index.html"], .logo-group');
   homeLinks.forEach(link => {
     link.addEventListener('click', (e) => {
       const isHome = document.getElementById('storieboeke');

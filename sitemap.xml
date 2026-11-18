@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="UTF-8"?>
+<?xml version='1.0' encoding='UTF-8'?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
     <loc>https://www.softcoverbooks.co.za/</loc>
@@ -1465,19 +1465,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.softcoverbooks.co.za/pluim%20boeke</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
     <loc>https://www.softcoverbooks.co.za/pronk%20boeke%20outeurs</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.softcoverbooks.co.za/pronk%20boeke</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -1748,12 +1736,6 @@
   </url>
   <url>
     <loc>https://www.softcoverbooks.co.za/saffier%20boeke</loc>
-    <lastmod>2026-10-23</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>0.7</priority>
-  </url>
-  <url>
-    <loc>https://www.softcoverbooks.co.za/sahara%20avontuur%20reeks%20meiring%20fouche</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
@@ -2203,7 +2185,7 @@
     <priority>0.7</priority>
   </url>
   <url>
-    <loc>https://www.softcoverbooks.co.za/uit%20die%20dagboek%20van%20'n%20psigiater%20reeks%20fotoverhaal</loc>
+    <loc>https://www.softcoverbooks.co.za/uit%20die%20dagboek%20van%20%27n%20psigiater%20reeks%20fotoverhaal</loc>
     <lastmod>2026-10-23</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
