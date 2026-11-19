@@ -325,8 +325,8 @@ img {
   }
 
   .brand-text .sub-title {
-    font-size: 0.62rem;
-    letter-spacing: 0.4px;
+    font-size: clamp(0.50rem, 2.4vw, 0.60rem);
+    letter-spacing: 0.2px;
     line-height: 1.15;
     white-space: nowrap;
   }
@@ -1822,7 +1822,25 @@ body.fotoverhale-page .book-meta,
     margin-bottom: 2px;
   }
   .sb-portale-grid {
-    grid-template-columns: 1fr;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 10px;
+  }
+  .sb-portal-card {
+    padding: 10px 8px;
+  }
+  .sb-portal-card h3 {
+    font-size: 0.85rem;
+    overflow-wrap: break-word;
+  }
+  .sb-portal-card p {
+    font-size: 0.76rem;
+    line-height: 1.35;
+    margin-bottom: 8px;
+    overflow-wrap: break-word;
+  }
+  .sb-portal-link {
+    font-size: 0.74rem;
+    padding: 5px 6px;
   }
 }
 
@@ -2883,5 +2901,177 @@ input:focus, textarea:focus, .search-input:focus {
     width: 28px;
     height: 28px;
     font-size: 1rem;
+  }
+}
+
+/* ==========================================================================
+   MOBILE-ONLY REFINEMENTS (Small 9:16 Screens <= 600px)
+   Do not touch larger screens (laptops, tablets, desktops).
+   ========================================================================== */
+@media (max-width: 600px) {
+  /* Prevent horizontal overflow on small mobile screens */
+  html, body {
+    overflow-x: hidden;
+  }
+
+  /* Two-column layout for Featured Showcase (Authors & Series) */
+  .featured-showcase-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .showcase-content {
+    padding: 8px 6px !important;
+  }
+  .showcase-title {
+    font-size: 0.88rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .showcase-desc {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .showcase-btn {
+    font-size: 0.74rem !important;
+    gap: 2px !important;
+  }
+
+  /* Two-column layout for Resource Quad Grid */
+  .resource-quad-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .resource-box {
+    padding: 10px 8px !important;
+  }
+  .resource-icon {
+    font-size: 1.5rem !important;
+    margin-bottom: 6px !important;
+  }
+  .resource-title {
+    font-size: 0.82rem !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .resource-desc {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    overflow-wrap: break-word;
+    word-break: normal;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .resource-link-label {
+    font-size: 0.72rem !important;
+  }
+
+  /* Two-column layout for Featured Articles Grid */
+  .featured-articles-grid {
+    grid-template-columns: repeat(2, 1fr) !important;
+    gap: 10px !important;
+  }
+  .retro-article-meta {
+    font-size: 0.68rem !important;
+    letter-spacing: 0.2px !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+  }
+  .retro-article-body {
+    padding: 8px 6px !important;
+  }
+  .retro-article-title {
+    font-size: 0.86rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: break-word;
+  }
+  .retro-article-excerpt {
+    font-size: 0.76rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    overflow-wrap: break-word;
+    hyphens: auto;
+    -webkit-hyphens: auto;
+  }
+  .retro-article-link {
+    font-size: 0.72rem !important;
+  }
+
+  /* Archive Card text and spacing on small mobile screens */
+  .archive-card-body {
+    padding: 8px 6px !important;
+  }
+  .archive-card-body p {
+    font-size: 0.78rem !important;
+    line-height: 1.35 !important;
+    margin-bottom: 8px !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+  .archive-card-title {
+    font-size: 0.86rem !important;
+    line-height: 1.25 !important;
+    margin-bottom: 4px !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+  .card-cat-tag {
+    font-size: 0.64rem !important;
+    overflow-wrap: break-word;
+  }
+  .card-action-btn {
+    font-size: 0.74rem !important;
+    padding: 5px 6px !important;
+  }
+  .card-badge-count {
+    font-size: 0.65rem !important;
+    padding: 2px 5px !important;
+    top: 5px !important;
+    right: 5px !important;
+  }
+
+  /* Book Card title and info on mobile */
+  .book-info {
+    padding: 8px 6px !important;
+  }
+  .book-title {
+    font-size: 0.84rem !important;
+    line-height: 1.25 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+
+  /* Responsive main heading for series / publisher / article pages */
+  h1 {
+    font-size: clamp(1.35rem, 5.5vw, 1.85rem) !important;
+    line-height: 1.15 !important;
+    overflow-wrap: break-word !important;
+    word-break: normal !important;
+    hyphens: auto !important;
+    -webkit-hyphens: auto !important;
+  }
+
+  /* Responsive prose wrapping */
+  .article-prose {
+    overflow-wrap: break-word;
+    word-break: normal;
+  }
+  .article-prose a {
+    word-break: break-all;
   }
 }
